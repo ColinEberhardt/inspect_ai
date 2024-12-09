@@ -1,8 +1,8 @@
-from linux_user import linux_user
+from human import human
 
 from inspect_ai import Task, task
 
 
 @task
 def baseline() -> Task:
-    return Task(solver=linux_user())
+    return Task(solver=human())

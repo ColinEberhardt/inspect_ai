@@ -8,13 +8,17 @@ from inspect_ai.util import InputPanel, input_panel
 
 
 @solver
-def linux_user() -> Solver:
+def human_user() -> Solver:
     async def solve(state: TaskState, generate: Generate) -> TaskState:
-        panel = await input_panel("User", LinuxUserPanel)
-        await asyncio.sleep(1)
-        panel.activate()
-        await asyncio.sleep(20)
+        # copy scripts to sandbox
 
+        # open input panel for control/progress
+        async with await input_panel("User", LinuxUserPanel):
+            # run sandbox service
+
+            await asyncio.sleep(5)
+
+        await asyncio.sleep(3)
         return state
 
     return solve
